@@ -14,6 +14,8 @@ img {
     "links              links               links"
     "story-1            story-2             story-3"
     "story-4            story-5             story-5";
+
+    animation: spin 0.5s 1 linear;
 }
 
 .brand-header {
@@ -91,4 +93,13 @@ img {
     font-weight: normal;
     font-style: italic;
     text-align: center;
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1%) rotate(0deg);
+    }
+    to {
+        transform: scale(100%) rotate(360deg);
+    }
 }
