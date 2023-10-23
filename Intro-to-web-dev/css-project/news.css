@@ -1,0 +1,91 @@
+body {
+    box-sizing: border-box;
+}
+
+img {
+    max-height: 250px;
+}
+
+.page {
+    display: grid;
+    margin: 2.5%;
+    grid-template-areas: 
+    ".          brand-header    ."
+    "links      links           links"
+    "story-1    story-2         story-3"
+    "story-4    story-5         story-5";
+}
+
+.brand-header {
+    grid-area: brand-header;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    grid-area: links;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    border: 3px solid black;
+    padding: 30px;
+    margin: 0;
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    padding: 10px;
+}
+
+.story-1 {
+    grid-area: story-1;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.story-2 {
+    grid-area: story-2;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.story-3 {
+    grid-area: story-3;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.story-4 {
+    grid-area: story-4;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.story-5 {
+    grid-area: story-5;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.section-link {
+    font-size: 30px;
+    font-weight: bold;
+    /* font-family: futura; */
+    text-decoration: none;
+    color: #666;
+}
+
+.section-link:hover {
+    text-decoration: underline;
+}
+
+.article-title {
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+}
