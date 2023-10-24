@@ -1,0 +1,112 @@
+body {
+    box-sizing: border-box;
+}
+
+.page {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "brand-header   brand-header    brand-header    brand-header"
+    "left-half      left-half       right-half      right-half"
+    ".              totals          totals          ."
+    "footer         footer          footer          footer";
+}
+
+.brand-header {
+    grid-area: brand-header;
+    display: flex;
+    justify-content: center;
+    background-color: saddlebrown;
+    align-items: center;
+    color: beige;
+}
+
+.left-half {
+    grid-area: left-half;
+    max-width: 100%;
+}
+
+.right-half {
+    grid-area: right-half;
+    max-width: 100%;
+}
+
+.totals {
+    grid-area: totals;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.check-details {
+    list-style: none;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-around;
+}
+
+.receipt {
+    height: 300px;
+}
+
+.name {
+    height: 150px;
+}
+
+.payment {
+    height: 200px;
+}
+
+.order-contents {
+    background-color: bisque;
+    margin: 25px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    width: 100%;
+}
+
+.order-up {
+    background-color: peru;
+    width: 90%;
+    border-radius: 2rem;
+}
+
+.content-label {
+    background-color:blueviolet;
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+}
+
+.line-item {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: 
+    "qty item-name price"
+    "qty addon price";
+    margin-left: 20px;
+}
+
+.qty {
+    grid-area: qty;
+}
+
+.item-name {
+    grid-area: item-name;
+}
+
+.price {
+    grid-area: price;
+}
+
+.addon {
+    grid-area: addon;
+}
