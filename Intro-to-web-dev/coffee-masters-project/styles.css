@@ -1,5 +1,9 @@
 body {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .page {
@@ -17,9 +21,14 @@ body {
     grid-area: brand-header;
     display: flex;
     justify-content: center;
-    background-color: saddlebrown;
+    background-color: #43281c;;
     align-items: center;
-    color: beige;
+    color: #fbf2c0;;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 5px;
 }
 
 .left-half {
@@ -46,11 +55,18 @@ body {
 
 .detail {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.detail-total {
+    font-weight: bold;
 }
 
 .receipt {
-    height: 300px;
+    /* height: fit-content;
+    padding-bottom: 25px; */
 }
 
 .name {
@@ -62,8 +78,12 @@ body {
 }
 
 .order-contents {
-    background-color: bisque;
+    background-color: #eee1d5;;
     margin: 25px;
+    border-radius: .5rem;
+    height: fit-content;
+    padding-bottom: 25px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
 }
 
 .footer {
@@ -74,15 +94,20 @@ body {
 }
 
 .order-up {
-    background-color: peru;
+    background-color:#deb993; ;
     width: 90%;
     border-radius: 2rem;
+    border: none;
 }
 
 .content-label {
-    background-color:blueviolet;
+    /* background-color:blueviolet; */
     display: flex;
     align-items: center;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    color: #885a2d;;
     /* padding: 10px; */
 }
 
@@ -93,6 +118,17 @@ body {
     "qty item-name price"
     "qty addon price";
     margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #DDB892;
+}
+
+.line-item:last-child {
+    border-bottom: none;
+}
+.line-item:first-child {
+    padding-top: 0;
 }
 
 .qty {
@@ -109,4 +145,77 @@ body {
 
 .addon {
     grid-area: addon;
+    margin: 0;
+    /* background-color: aqua; */
+    padding-left: 0;
+    color: #B08968;
+    
+}
+
+.addon div {
+    padding-top: 5px;
+}
+
+.name-input {
+    border: none;
+    height: 30px;
+    font-size: 20px;
+    background-color: #eee1d5;;
+}
+
+.order-input {
+    border: none;
+    height: 30px;
+    font-size: 20px;
+    background-color: #eee1d5;;
+}
+
+.input-label {
+    padding-left: 2px;
+    padding-right: 2px;
+    left: 55%;
+    position: absolute;
+    background-color: #eee1d5;;
+    color: #885a2d;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+
+.input-wrapper {
+    border: 2px solid #885a2d;
+    border-radius: 2rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.cvv-input-wrapper {
+    margin-top: 20px;
+    margin-right: 70%;
+}
+
+.cvv-input {
+    width: 85%;
+}
+
+.payment-input-wrapper {
+    margin-top: 20px;
+}
+
+.name-label {
+    top: 183px;
+}
+
+.payment-label {
+    top: 354px;
+}
+
+.cvv-label {
+    top: 421px;
 }
