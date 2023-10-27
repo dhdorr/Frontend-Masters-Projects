@@ -32,14 +32,15 @@ body {
 .display {
     grid-area: display;
     color: white;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: end;
 }
 
 .output {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: end;
-    padding: 1rem;
+    padding: 3rem;
     font-family: monospace;
     font-size: 48px;
     
