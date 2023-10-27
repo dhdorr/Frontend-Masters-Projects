@@ -11,11 +11,9 @@ document.querySelector(".calculator").addEventListener("click", function (event)
     if (event.target.nodeName == "BUTTON" && event.target.className.includes("num")) {
         updateEquation(event.target.innerText)
 
-        console.log(`clicked: ${event.target.innerText}, ${event.target.classList}, ${event.target.className.includes("operator")}`);
         updateDisplay();
     } else if (event.target.nodeName == "BUTTON" && event.target.className.includes("operator")) {
         
-        console.log(`switch input mutex: ${inputMutex} ,${equation.inputs[inputMutex]}`);
         updateOperator(event.target.innerText);
         updateDisplay();
         updateMutex();
@@ -28,31 +26,26 @@ document.querySelector(".calculator").addEventListener("click", function (event)
     } else if (event.target.className.includes("del")) {
         deleteInput();
         updateDisplay();
-    }
-
-    // updateDisplay();
-    
+    }    
 });
 
 function updateDisplay() {
     output.innerText = equation.inputs[inputMutex];
-
-    console.log(`equation: ${equation.inputs}, mutex: ${inputMutex}`);
 }
 
 function updateEquation(num) {
-    if (equation.inputs[inputMutex] == "0") {equation.inputs[inputMutex] = "";}
+    if (equation.inputs[inputMutex] == "0") {
+        equation.inputs[inputMutex] = num;
+    } else {
+        equation.inputs[inputMutex] += num;
+    }
 
-    equation.inputs[inputMutex] += num;
 }
 
 function updateOperator(operator) {
     if (equation.inputs[2] != "") {
         evaluateEquation();
-    } else {
-        // updateMutex();
     }
-    // updateMutex();
     equation.inputs[2] = operator;
 }
 
@@ -69,10 +62,8 @@ function evaluateEquation() {
         result = +equation.inputs[0] / +equation.inputs[1];
     } else {
         result = +equation.inputs[0]
-        console.log("made it here...");
         updateMutex();
     }
-    console.log(`result: ${result}`);
 
     equation.inputs[0] = result.toString();
     equation.inputs[1] = "0";
