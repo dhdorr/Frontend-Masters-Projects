@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    border-bottom: 4px solid black;
+}
+
+.board-grid {
+    background-color: aliceblue;
+    display: grid;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+    "l1 l2 l3 l4 l5"
+    "l6 l7 l8 l9 l10"
+    "l11 l12 l13 l14 l15"
+    "l16 l17 l18 l19 l20"
+    "l21 l22 l23 l24 l25";
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+}
+
+.l1 {
+    grid-area: l1;
+}
+
+.l2 {
+    grid-area: l2;
+}
+
+.l3 {
+    grid-area: l3;
+}
+
+.l4 {
+    grid-area: l4;
+}
+
+.l5 {
+    grid-area: l5;
+}
+
+.l6 {
+    grid-area: l6;
+}
+
+.l7 {
+    grid-area: l7;
+}
+
+.l8 {
+    grid-area: l8;
+}
+
+.l9 {
+    grid-area: l9;
+}
+
+.l10 {
+    grid-area: l10;
+}
+
+.l11 {
+    grid-area: l11;
+}
+
+.l12 {
+    grid-area: l12;
+}
+
+.l13 {
+    grid-area: l13;
+}
+
+.l14 {
+    grid-area: l14;
+}
+
+.l15 {
+    grid-area: l15;
+}
+
+.l16 {
+    grid-area: l16;
+}
+
+.l17 {
+    grid-area: l17;
+}
+
+.l18 {
+    grid-area: l18;
+}
+
+.l19 {
+    grid-area: l19;
+}
+
+.l20 {
+    grid-area: l20;
+}
+
+.l21 {
+    grid-area: l21;
+}
+
+.l22 {
+    grid-area: l22;
+}
+
+.l23 {
+    grid-area: l23;
+}
+
+.l24 {
+    grid-area: l24;
+}
+
+.l25 {
+    grid-area: l25;
+}
