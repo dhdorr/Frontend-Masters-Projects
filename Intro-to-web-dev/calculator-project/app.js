@@ -52,17 +52,23 @@ function updateOperator(operator) {
 function evaluateEquation() {
     let result = 0;
 
-    if (equation.inputs[2] == "+") {
-        result = +equation.inputs[0] + +equation.inputs[1];
-    } else if (equation.inputs[2] == "-") {
-        result = +equation.inputs[0] - +equation.inputs[1];
-    } else if (equation.inputs[2] == "x") {
-        result = +equation.inputs[0] * +equation.inputs[1];
-    } else if (equation.inputs[2] == "/") {
-        result = +equation.inputs[0] / +equation.inputs[1];
-    } else {
-        result = +equation.inputs[0]
-        updateMutex();
+    switch (equation.inputs[2]) {
+        case "+":
+            result = +equation.inputs[0] + +equation.inputs[1];
+            break;
+        case "-":
+            result = +equation.inputs[0] - +equation.inputs[1];
+            break;
+        case "x":
+            result = +equation.inputs[0] * +equation.inputs[1];
+            break;
+        case "/":
+            result = +equation.inputs[0] / +equation.inputs[1];
+            break;
+        case "":
+            result = +equation.inputs[0]
+            updateMutex();
+            break;
     }
 
     equation.inputs[0] = result.toString();
@@ -83,5 +89,9 @@ function clearEquation() {
 }
 
 function deleteInput() {
-    equation.inputs[inputMutex] = equation.inputs[inputMutex].slice(0, equation.inputs[inputMutex].length - 1);
+    if (equation.inputs[inputMutex].length > 1) {
+        equation.inputs[inputMutex] = equation.inputs[inputMutex].slice(0, equation.inputs[inputMutex].length - 1);
+    } else {
+        equation.inputs[inputMutex] = "0";
+    }
 }
