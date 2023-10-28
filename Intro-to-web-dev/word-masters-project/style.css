@@ -18,6 +18,7 @@ nav {
 
 .board-grid {
     background-color: aliceblue;
+    margin-top: 10vh;
     display: grid;
     gap: 1rem;
     justify-content: center;
@@ -48,6 +49,32 @@ nav {
     width: 60px;
     height: 60px;
     border: solid grey 4px;
+}
+
+.loading-screen {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(127, 255, 212, 0);
+    left: calc(50% - 50px);
+    /* transform: translateX(-50px); */
+    top: 10vh;
+    animation: spin 1s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 60px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .l1 {

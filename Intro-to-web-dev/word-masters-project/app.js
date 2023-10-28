@@ -7,7 +7,12 @@ let current_letter = 0;
 let current_word = 0;
 let word_builder = "";
 
+function setLoading(isLoading) {
+    document.querySelector(".loading-screen").classList.toggle("hidden", !isLoading);
+}
+
 async function validateGuess() {
+    setLoading(true);
     console.log("do something to show validation");
 
     var myHeaders = new Headers();
@@ -26,6 +31,7 @@ async function validateGuess() {
     const promise = await fetch(postGuessUrl, requestOptions);
     const processedResponse = await promise.json();
     console.log(processedResponse);
+    setLoading(false);
     return processedResponse.validWord;
 }
 
@@ -36,14 +42,12 @@ function getNextLetterBox(wordNo, letterNo) {
 function toggleDisabled(num) {
     let myElement = letters[0];
     let count = 0;
-    let wordCount = 0
     letters.forEach((element) => {
         if (count !== (current_word * 5) + current_letter) {
             element.disabled = true;
         } else {
             element.disabled = false;
             myElement = element;
-            // element.focus();
         }
         count++;
         
@@ -81,7 +85,7 @@ function handleDelete(element) {
 
 async function handleEnterGuess() {
     let tempBool = await validateGuess();
-
+    // let tempBool = true;
     if (tempBool) {
         if (word_builder === wordOfTheDay) {
             letters.forEach((element) => {
@@ -150,11 +154,13 @@ async function handleEnterGuess() {
 }
 
 async function testUrl() {
+    setLoading(true);
     const promise = await fetch(getWordUrl);
     const processedResponse = await promise.json();
     console.log(processedResponse);
     wordOfTheDay = processedResponse["word"];
     console.log(wordOfTheDay);
+    setLoading(false);
 }
 
 letters.forEach(element => {
