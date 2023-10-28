@@ -91,25 +91,53 @@ async function handleEnterGuess() {
             alert("you win!");
 
         } else {
+            let tempObj = {};
+            let tempArr = [];
+            for(let k = 0; k < 5; k++){
+                tempObj[wordOfTheDay[k]] = (tempObj[wordOfTheDay[k]] || 0) + 1;
+            }
+
+            console.log(tempObj);
+
             for(let i = 0; i < 5; i++) {
                 if (wordOfTheDay[i] === word_builder[i]) {
                     console.log(`${word_builder[i]} is in the right spot`);
                     let testMe = document.querySelector(".board-grid").children;
                     testMe[(current_word * 5) + i].style.backgroundColor = 'green';
                     testMe[(current_word * 5) + i].firstElementChild.style.color = 'white';
-                } else if (wordOfTheDay.includes(word_builder[i])) {
-                    console.log(`${word_builder[i]} is in the wrong spot`);
-                    let testMe = document.querySelector(".board-grid").children;
-                    testMe[(current_word * 5) + i].style.backgroundColor = 'goldenrod';
-                    testMe[(current_word * 5) + i].firstElementChild.style.color = 'white';
-                    console.log(testMe[(current_word * 5) + i]);
+
+                    tempObj[word_builder[i]] -= 1;
+                    tempArr.push(word_builder[i]);
+                } 
+            }
+
+            for(let j = 0; j < 5; j++) {
+                if (wordOfTheDay[j] === word_builder[j]) {
+                    continue;
+                }
+                if (wordOfTheDay.includes(word_builder[j]) && word_builder[j] !== wordOfTheDay[j]) {
+                    if (tempObj[word_builder[j]] > 0){
+                        console.log(`${word_builder[j]} is in the wrong spot`);
+                        let testMe = document.querySelector(".board-grid").children;
+                        testMe[(current_word * 5) + j].style.backgroundColor = 'goldenrod';
+                        testMe[(current_word * 5) + j].firstElementChild.style.color = 'white';
+                        console.log(testMe[(current_word * 5) + j]);
+                        tempObj[word_builder[j]] -= 1;
+                    } else {
+                        console.log(`${word_builder[j]} is not in the word`);
+                        let testMe = document.querySelector(".board-grid").children;
+                        testMe[(current_word * 5) + j].style.backgroundColor = 'grey';
+                        testMe[(current_word * 5) + j].firstElementChild.style.color = 'white';
+                    }
+
                 } else {
-                    console.log(`${word_builder[i]} is not in the word`);
+                    console.log(`${word_builder[j]} is not in the word`);
                     let testMe = document.querySelector(".board-grid").children;
-                    testMe[(current_word * 5) + i].style.backgroundColor = 'grey';
-                    testMe[(current_word * 5) + i].firstElementChild.style.color = 'white';
+                    testMe[(current_word * 5) + j].style.backgroundColor = 'grey';
+                    testMe[(current_word * 5) + j].firstElementChild.style.color = 'white';
                 }
             }
+
 
             word_builder = "";
         
