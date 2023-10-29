@@ -107,7 +107,7 @@ async function handleEnterGuess() {
 
         console.log(tempObj);
 
-        for(let i = 0; i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
             if (wordOfTheDay[i] === word_builder[i]) {
                 console.log(`${word_builder[i]} is in the right spot`);
                 let testMe = document.querySelector(".board-grid").children;
@@ -158,9 +158,16 @@ async function handleEnterGuess() {
             word_builder = "";
     
             current_word++;
-            current_letter = 0;
-            let enabledInput = toggleDisabled(current_word * 5);
-            getNextLetterBox(current_word, current_letter).focus();
+            if (current_word <= 5) {
+                current_letter = 0;
+                let enabledInput = toggleDisabled(current_word * 5);
+                getNextLetterBox(current_word, current_letter).focus();
+            } else {
+                alert("you lose :(");
+
+            document.querySelector(".brand").classList.toggle("loser", true);
+            }
+            
         }
     } else {
         markInvalidWord();
