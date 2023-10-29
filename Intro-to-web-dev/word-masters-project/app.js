@@ -98,6 +98,7 @@ function handleDelete(element) {
 async function handleEnterGuess() {
     let tempBool = await validateGuess();
     // let tempBool = true;
+    word_builder = word_builder.toLocaleLowerCase();
     if (tempBool) {
         
         let tempObj = {};
