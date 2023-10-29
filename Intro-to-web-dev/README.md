@@ -1,7 +1,7 @@
 # Intro To WebDev Projects
 
 ### WORD MASTERS PROJECT
-![image](https://github.com/dhdorr/Frontend-Masters-Projects/assets/44913332/b7454789-8c1c-4f6e-a58a-1bd1ad4b8a18)
+![image](https://github.com/dhdorr/Frontend-Masters-Projects/assets/44913332/a99f4740-d682-4345-809a-b157ebcb1629)
 
 
 ### CALCULATOR PROJECT
