@@ -47,8 +47,8 @@ willCounter();
 willCounter();
 willCounter();
 
-// jasCounter();
-// willCounter();
+jasCounter();
+willCounter();
 
 
 function addByX(x) {
@@ -57,6 +57,7 @@ function addByX(x) {
     myInput = x; // Comment out to have running total counter
     myInput += input;
     console.log('input + x ', myInput);
+    return myInput;
   }
   return myFunc;
 }
@@ -78,14 +79,27 @@ addByFour(5); // => should return 9
 
 // CHALLENGE 4
 function once(func) {
-
+  let counter = 0;
+  let output;
+  
+  function myFunc(x) {
+    // do something
+    if (counter > 0) {
+      return output;
+    } else {
+      counter ++;
+      output = func(x);
+      return output;
+    }
+  }
+	return myFunc;
 }
 
 // /*** Uncomment these to check your work! ***/
-// const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+const onceFunc = once(addByTwo);
+console.log(onceFunc(4));  // => should log 6
+console.log(onceFunc(10));  // => should log 6
+console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
