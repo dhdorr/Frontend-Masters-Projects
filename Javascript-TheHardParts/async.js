@@ -175,6 +175,21 @@ class SecondClock {
 
 function debounce(callback, interval) {
   // ADD CODE HERE
+  let duration = 0
+  let id;
+  
+  function myFunc() {
+    // do something
+    
+    if (duration <= 0) {
+      duration = interval;
+      clearInterval(id);
+     	id = setInterval(() => {duration -= 100}, 100);
+      return callback();
+    }
+  }
+  
+  return myFunc;
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
